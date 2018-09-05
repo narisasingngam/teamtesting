@@ -3,6 +3,7 @@ import java.util.Arrays;
 /**
  * Methods for computing some common statistics, such as average, variance, and
  * correlation.
+ * @author Narisa Singngam
  */
 public class Statistics {
 

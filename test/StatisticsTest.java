@@ -4,7 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.sun.org.glassfish.external.statistics.Statistic;
-
+/**
+ * Test methods in the Statistics class.
+ * @author Narisa Singngam
+ *
+ */
 public class StatisticsTest {
 	/** A small tolerance for floating point round-off (precision) error. */
 	static final double TOL = 1.0E-6;
@@ -32,10 +36,7 @@ public class StatisticsTest {
 		}
 		assertEquals( avg, Statistics.average(x), TOL);
 	}
-	
-	//TODO add test cases:
-	//1. slightly illegal case. What if array is empty?
-	//2. extrame case: very large array or very different values
+
 	@Test (expected = IllegalArgumentException.class)
 	public void testEmptyArray(){
 		double []x = {};
