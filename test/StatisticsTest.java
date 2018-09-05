@@ -3,6 +3,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.org.glassfish.external.statistics.Statistic;
+
 public class StatisticsTest {
 	/** A small tolerance for floating point round-off (precision) error. */
 	static final double TOL = 1.0E-6;
@@ -34,8 +36,33 @@ public class StatisticsTest {
 	//TODO add test cases:
 	//1. slightly illegal case. What if array is empty?
 	//2. extrame case: very large array or very different values
+	@Test (expected = IllegalArgumentException.class)
+	public void testEmptyArray(){
+		double []x = {};
+		Statistics.variance(x);
+	}
 	
-	//TODO add test for variance.
-	// What are test cases?
+	@Test (expected = IllegalArgumentException.class)
+	public void testDifferentValues(){
+		double []x = {1,2,5};
+		double []y = {4,5};
+		double []a = {};
+		Statistics.covariance(x, y);
+		Statistics.covariance(a, y);
+		Statistics.covariance(x, a);
+	}
+	
+	@Test
+	public void testVariance(){
+		double []x = {600, 470, 430, 300 ,170}; 
+		assertEquals(21704,Statistics.variance(x),TOL);
+	}
+	
+	@Test
+	public void testCovariance(){
+		double []x = {5,20,40,80,100};
+		double []y = {10,24,33,54,10};
+		assertEquals(187.75,Statistics.covariance(x, y),TOL);
+	}
 
 }
