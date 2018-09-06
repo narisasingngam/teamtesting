@@ -19,8 +19,6 @@ public class StringUtilTest {
 		assertEquals(0, StringUtil.indexOf("Apple", fruit));
 		assertEquals(-1, StringUtil.indexOf("Orange", fruit));
 	}
-
-	//TODO write more tests. Test other cases.
 	
 	@Test
 	public void testBlankIndexOf() {
@@ -39,7 +37,5 @@ public class StringUtilTest {
 		String[] nut = {"Almond", "Pecan", "Pistachio\t"};
 		assertEquals(2, StringUtil.indexOf("Pistachio\t", nut));
 	}
-	
-	
 	
 }
