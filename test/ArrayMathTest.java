@@ -26,9 +26,27 @@ public class ArrayMathTest {
 		assertEquals( 0.0, ArrayMath.dotProduct(x, y), TOL);
 	}
 	
-	//TODO Add at least one test for the "typical" case: vectors larger than 1.
-	// Please don't copy my tests. You don't need random numbers (not a good idea
-	// because test results may not be reproducable).
+	@Test
+	public void testDotProductVectorsLargerThanOne() {
+		//vector of size 2
+		double[] a = {-5, -11};
+		double[] b = {2, 7};
+		double ans = a[0]*b[0] + a[1]*b[1];
+		assertEquals(ans, ArrayMath.dotProduct(a, b), TOL);
+		assertEquals(ans, ArrayMath.dotProduct(b, a), TOL);
+		
+		//vector of size 3
+		double[] x = {-2, 3, 4};
+		double[] y = {5, 6, -7};
+		double answer = 0;
+		for(int i = 0; i < x.length; i++){
+			answer += x[i] * y[i];
+		}
+		assertEquals(answer, ArrayMath.dotProduct(x, y), TOL);
+		assertEquals(answer, ArrayMath.dotProduct(y, x), TOL);
+		
+		
+	}
 
 	@Test
 	public void testDotProductHugeVectors() {
